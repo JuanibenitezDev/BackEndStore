@@ -7,20 +7,8 @@ module.exports = [
         useDefaults: true,
         directives: {
           "connect-src": ["'self'", "https:"],
-          "img-src": [
-            "'self'",
-            "data:",
-            "blob:",
-            "*.nyc3.digitaloceanspaces.com",
-            "nyc3.digitaloceanspaces.com",
-          ],
-          "media-src": [
-            "'self'",
-            "data:",
-            "blob:",
-            "*.nyc3.digitaloceanspaces.com",
-            "nyc3.digitaloceanspaces.com",
-          ],
+          "img-src": ["'self'", "data:", "blob:", "*.digitaloceanspaces.com"],
+          "media-src": ["'self'", "data:", "blob:", "*.digitaloceanspaces.com"],
           upgradeInsecureRequests: null,
         },
       },
