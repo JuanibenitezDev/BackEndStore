@@ -23,7 +23,7 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
               currency: "usd",
               product_data: {
                 name: item.title,
-                images: [process.env.CLIENT_URL + `${item.img}`],
+                images: [process.env.CLIENT_URL],
               },
               unit_amount: Math.round(item.price * 100),
             },
@@ -33,7 +33,6 @@ module.exports = createCoreController("api::order.order", ({ strapi }) => ({
       );
 
       const session = await stripe.checkout.sessions.create({
-        shipping_address_collection: { allowed_countries: ["US", "CA"] },
         payment_method_types: ["card"],
         mode: "payment",
         success_url: process.env.CLIENT_URL + "?success=true",
